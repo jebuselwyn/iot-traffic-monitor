@@ -5,6 +5,7 @@ import org.springframework.data.cassandra.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.iot.app.springboot.dao.entity.WindowTrafficData;
+import com.iot.app.springboot.dao.entity.WindowTrafficDataKey;
 
 /**
  * DAO class for window_traffic 
@@ -13,7 +14,7 @@ import com.iot.app.springboot.dao.entity.WindowTrafficData;
  *
  */
 @Repository
-public interface WindowTrafficDataRepository extends CassandraRepository<WindowTrafficData>{
+public interface WindowTrafficDataRepository extends CassandraRepository<WindowTrafficData, WindowTrafficDataKey>{
 	
 	@Query("SELECT * FROM traffickeyspace.window_traffic WHERE recorddate = ?0 ALLOW FILTERING")
 	 Iterable<WindowTrafficData> findTrafficDataByDate(String date);

@@ -5,8 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.apache.log4j.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -28,7 +29,7 @@ import com.iot.app.springboot.vo.Response;
  */
 @Service
 public class TrafficDataService {
-	private static final Logger logger = Logger.getLogger(TrafficDataService.class);
+	private static final Logger logger = LoggerFactory.getLogger(TrafficDataService.class);
 	
 	@Autowired
 	private SimpMessagingTemplate template;

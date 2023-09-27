@@ -3,10 +3,11 @@ package com.iot.app.springboot.dao.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import org.springframework.cassandra.core.PrimaryKeyType;
-import org.springframework.data.cassandra.mapping.Column;
-import org.springframework.data.cassandra.mapping.PrimaryKeyColumn;
-import org.springframework.data.cassandra.mapping.Table;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,11 +19,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  */
 @Table("poi_traffic")
 public class POITrafficData implements Serializable{
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone="MST")
-	@PrimaryKeyColumn(name = "timeStamp",ordinal = 0,type = PrimaryKeyType.PARTITIONED)
-	private Date timeStamp;
-	@PrimaryKeyColumn(name = "recordDate",ordinal = 1,type = PrimaryKeyType.CLUSTERED)
-	private String recordDate;
+
+	@PrimaryKey
+	POITrafficDataKey pk;
+	
 	@Column(value = "vehicleId")
 	private String vehicleId;
 	@Column(value = "distance")
@@ -30,18 +30,6 @@ public class POITrafficData implements Serializable{
 	@Column(value = "vehicleType")
 	private String vehicleType;
 	
-	public Date getTimeStamp() {
-		return timeStamp;
-	}
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-	public String getRecordDate() {
-		return recordDate;
-	}
-	public void setRecordDate(String recordDate) {
-		this.recordDate = recordDate;
-	}
 	public String getVehicleId() {
 		return vehicleId;
 	}
@@ -59,6 +47,12 @@ public class POITrafficData implements Serializable{
 	}
 	public void setVehicleType(String vehicleType) {
 		this.vehicleType = vehicleType;
+	}
+	public POITrafficDataKey getPk() {
+		return pk;
+	}
+	public void setPk(POITrafficDataKey pk) {
+		this.pk = pk;
 	}
 	
 }

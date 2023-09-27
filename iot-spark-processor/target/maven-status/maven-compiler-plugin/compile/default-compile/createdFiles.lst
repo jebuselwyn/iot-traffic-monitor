@@ -1,0 +1,11 @@
+com/iot/app/spark/vo/POIData.class
+com/iot/app/spark/entity/TotalTrafficData.class
+com/iot/app/spark/util/PropertyFileReader.class
+com/iot/app/spark/entity/POITrafficData.class
+com/iot/app/spark/vo/AggregateKey.class
+com/iot/app/spark/entity/WindowTrafficData.class
+com/iot/app/spark/processor/IoTTrafficDataProcessor.class
+com/iot/app/spark/util/GeoDistanceCalculator.class
+com/iot/app/spark/util/IoTDataDecoder.class
+com/iot/app/spark/processor/IoTDataProcessor.class
+com/iot/app/spark/vo/IoTData.class

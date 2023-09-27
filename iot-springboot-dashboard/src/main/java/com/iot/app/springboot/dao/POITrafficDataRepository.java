@@ -4,6 +4,7 @@ import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.stereotype.Repository;
 
 import com.iot.app.springboot.dao.entity.POITrafficData;
+import com.iot.app.springboot.dao.entity.POITrafficDataKey;
 
 /**
  * DAO class for poi_traffic 
@@ -12,6 +13,6 @@ import com.iot.app.springboot.dao.entity.POITrafficData;
  *
  */
 @Repository
-public interface POITrafficDataRepository extends CassandraRepository<POITrafficData>{
+public interface POITrafficDataRepository extends CassandraRepository<POITrafficData, POITrafficDataKey>{
 	 
 }
